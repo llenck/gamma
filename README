@@ -1,0 +1,13 @@
+Small tool to change your gamma; not great, but source is easy to modify. This was designed to be mostly useful for keybinds in tiling window managers, for example i put this in my i3 config:
+
+bindsym $mod+g mode "gamma"
+
+mode "gamma" {
+	bindsym Left exec --no-startup-id gamma -5
+	bindsym Right exec --no-startup-id gamma 5
+	bindsym Down exec --no-startup-id gamma -1
+	bindsym Up exec --no-startup-id gamma 1
+	bindsym r exec --no-startup-id bash -c 'xrandr --output HDMI-0 --gamma 1 && rm /tmp/gamma'
+
+	bindsym Escape mode "default"
+}
